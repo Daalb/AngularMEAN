@@ -7,13 +7,12 @@ import { Grafica1Component } from './grafica1/grafica1.component';
 
 const routes: Routes = [
     {//* Una manera de hacer rutas hijas
-        path: '', 
+        path: 'dashboard', 
         component: PagesComponent,
         children : [//*De esta manera se puede hacer que varios componentes compartan un mismo layout
-          { path: 'dashboard', component: DashboardComponent},
+          { path: '', component: DashboardComponent},
           { path: 'progress', component: ProgressComponent},
           { path: 'grafica1', component: Grafica1Component},
-          { path: '', redirectTo:'/dashboard', pathMatch:'full'},
         ]
     },//*Estos de acá manejan un layout diferente
 ];
