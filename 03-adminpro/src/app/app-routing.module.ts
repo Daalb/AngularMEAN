@@ -7,14 +7,22 @@ import { Grafica1Component } from './pages/grafica1/grafica1.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { PagesComponent } from './pages/pages.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent},
+  {//* Una manera de hacer rutas hijas
+    path: '', 
+    component: PagesComponent,
+    children : [//*De esta manera se puede hacer que varios componentes compartan un mismo layout
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'progress', component: ProgressComponent},
+      { path: 'grafica1', component: Grafica1Component},
+      { path: '', redirectTo:'/dashboard', pathMatch:'full'},
+    ]
+  },//*Estos de acá manejan un layout diferente
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'progress', component: ProgressComponent},
-  { path: 'grafica1', component: Grafica1Component},
-  { path: '',redirectTo:'/dashboard', pathMatch:'full'},
+
   { path: '**', component: NopagefoundComponent},
 ];
 

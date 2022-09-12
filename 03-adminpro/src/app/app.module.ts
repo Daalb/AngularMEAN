@@ -13,6 +13,7 @@ import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component'
 import { ProgressComponent } from './pages/progress/progress.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     ProgressComponent,
     RegisterComponent,
     SidebarComponent,
+    PagesComponent,
   ],
   imports: [
     BrowserModule,
