@@ -8,24 +8,15 @@ import { Component } from '@angular/core';
   ]
 })
 export class ProgressComponent {
-  public progreso: number = 50;
+  public progreso1: number = 25;
+  public progreso2: number = 35;
 
-
-  //*El get es como tener una propiedad
-  public get getPorcentaje(){
-    return `${this.progreso}%`
+  get getProgreso1(){
+    return `${this.progreso1}%`
   }
 
-  cambiarValor(valor: number){
-    if(this.progreso >=100 && valor >= 0){
-      return this.progreso = 100;
-    }
-
-    if(this.progreso <= 0 && valor < 0){
-      return this.progreso = 0;
-    }
-
-    return this.progreso = this.progreso + valor;
+  get getProgreso2(){
+    return `${this.progreso2}%`
   }
 
 }
