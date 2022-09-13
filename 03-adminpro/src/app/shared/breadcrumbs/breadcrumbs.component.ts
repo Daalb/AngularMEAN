@@ -30,9 +30,11 @@ export class BreadcrumbsComponent implements OnDestroy{
    return this.router.events
     .pipe(
       filter( (event): event is ActivationEnd => event instanceof ActivationEnd),
+      // filter( event => event instanceof ActivationEnd),
       filter( (event: ActivationEnd) => event.snapshot.firstChild === null),
       map( (event: ActivationEnd) => event.snapshot.data),
     )
+
      
   }
 
