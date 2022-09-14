@@ -25,7 +25,7 @@ router.post( '/',
     [
         validarJWT,
         check('nombre','El nombre del médico es necesario').not().isEmpty(),
-        check('hospital','El hospital id debe de ser válido').isMongoId(),
+        check('hospital','El hospital id debe de ser válido').isMongoId(),//*Para validar que viene un id valido de mongo y así poder buscar de manera correcta el hospital relacionado
         validarCampos
     ], 
     crearMedico 

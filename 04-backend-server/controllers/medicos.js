@@ -5,8 +5,8 @@ const Medico = require('../models/medico');
 const getMedicos = async(req, res = response) => {
 
     const medicos = await Medico.find()
-                                .populate('usuario','nombre img')
-                                .populate('hospital','nombre img')
+                                .populate('usuario','nombre img') //*Traer el nombre y la imagen del usuario que creo el medico
+                                .populate('hospital','nombre img')//*Traer el nombre y la imagen del hospital al que pertenece
 
 
     res.json({
@@ -40,7 +40,7 @@ const getMedicoById = async(req, res = response) => {
 
 const crearMedico = async (req, res = response) => {
 
-    const uid = req.uid;
+    const uid = req.uid;//* Lo saco de la verificación del Token, el primer middleware
     const medico = new Medico({
         usuario: uid,
         ...req.body
@@ -48,10 +48,7 @@ const crearMedico = async (req, res = response) => {
 
 
     try {
-
         const medicoDB = await medico.save();
-
-        
         res.json({
             ok: true,
             medico: medicoDB

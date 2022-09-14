@@ -5,7 +5,8 @@ const Hospital = require('../models/hospital');
 
 const getHospitales = async(req, res = response) => {
 
-    const hospitales = await Hospital.find().populate('usuario','nombre img');
+    const hospitales = await Hospital.find().populate('usuario','nombre img'); //*Populate para saber quien creó ese hospital
+    //*Es como un inner join
 
     res.json({
         ok: true,
@@ -15,17 +16,14 @@ const getHospitales = async(req, res = response) => {
 
 const crearHospital = async(req, res = response) => {
 
-    const uid = req.uid;
+    const uid = req.uid;//* Es el id del usuario que está crenado el Hospital
     const hospital = new Hospital({ 
         usuario: uid,
         ...req.body 
     });
 
     try {
-        
         const hospitalDB = await hospital.save();
-        
-
         res.json({
             ok: true,
             hospital: hospitalDB
@@ -38,9 +36,6 @@ const crearHospital = async(req, res = response) => {
             msg: 'Hable con el administrador'
         })
     }
-    
-
-
 }
 
 const actualizarHospital = async (req, res = response) => {
