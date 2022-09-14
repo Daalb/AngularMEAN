@@ -17,6 +17,9 @@ app.use(express.json());//*Permite leer la información que viene dentro de una 
 //Base de datos
 dbConnection();
 
+// Directorio público
+app.use( express.static('public') );
+
 //Rutas
 app.use( '/api/hospitales', require('./routes/hospitales') );
 app.use( '/api/login', require('./routes/auth') );
