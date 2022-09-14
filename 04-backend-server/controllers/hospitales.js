@@ -56,7 +56,7 @@ const actualizarHospital = async (req, res = response) => {
 
         const cambiosHospital = {
             ...req.body,
-            usuario: uid
+            usuario: uid//*Quién actualizó el hospital
         }
 
         const hospitalActualizado = await Hospital.findByIdAndUpdate( id, cambiosHospital, { new: true } );
