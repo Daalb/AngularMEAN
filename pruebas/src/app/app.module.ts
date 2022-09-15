@@ -3,11 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MedicosComponent } from './intermedio/espias/medicos.component';
+import { HospitalComponent } from './intermedio2/hospital/hospital.component';
+import { IncrementadorComponent } from './intermedio2/incrementador/incrementador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MedicosComponent
+    MedicosComponent,
+    HospitalComponent,
+    MedicosComponent,
+    IncrementadorComponent
   ],
   imports: [
     BrowserModule
